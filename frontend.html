@@ -1,0 +1,122 @@
+﻿<!DOCTYPE HTML>
+<!--
+	Aerial by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<?php 
+$host = 'localhost';
+$user = 'root';
+$pw='';
+$db = 'ampel';
+
+$conn = new mysqli($host, $user, $pw, $db);
+
+	if ($conn -> connect_error){
+	die('Connection failed:'.$conn->connection_error);
+	}
+	
+	$sql ='SELECT * FROM programmieren';
+	$res = $conn->query($sql);
+	
+	if($res->num_rows > 0){
+		echo '<header id="header"><ul><li><a href="/promod1.html">Home</a></li></ul></header><form id="f" action="" method="post"><table><tr><th>Gruppe</th><th>Namen</th><th>Tutor</th><th>UB1</th><th>UB2</th><th>UB3</th><th>UB4</th><th>UB5</th><th>UB6</th><th>UB7</th><th>UB8</th><th>UB9</th><th>UB10</th><th>UB11</th><th>UB_A</th><th>UB_B</th><th>UB_C</th><th>UB_D</th><th>UB_E</th><th>UB_F</th><th>UB_G</th></tr>';
+	
+		while($row=$res->fetch_assoc()){
+	<table>
+     <?php foreach($data as $row): ?>
+     <tr>
+         <td><?php echo $row['item']; ?></td>
+     </tr>
+     <?php endforeach;?>
+</table>';
+			}
+		echo '</table></form>';
+		}
+	else{
+		echo '0 results';
+		}
+	$conn ->close();
+?>
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="jquery-2.1.4.js"></script>
+<script type="text/javascript" src="jquery.cookie.js"></script>
+<!--jQuery Funktion-->
+<script type="text/javascript">
+$(document).ready(function(){
+			$('input').each(function() {
+  if ($(this).val() == 1) {
+      $(this).parent().removeClass('white').addClass('green');
+	  $('form').removeClass('green');
+	}else if ($(this).val() == 2) {
+		$(this).parent().removeClass('green').removeClass('white').addClass('yellow');
+		 $('form').removeClass('yellow');
+	}else if ($(this).val() == 3) {
+		$(this).parent().removeClass('yellow').removeClass('white').addClass('red');
+		 $('form').removeClass('red');
+	}else if ( !$(this).val()) {
+		$(this).parent().removeClass('green').removeClass('yellow').removeClass('red').addClass('white');
+			}});
+});
+</script>
+<html>
+	<head>
+		<title>Ampelbewertung</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<link rel="stylesheet" href="colorbox.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="../jquery.colorbox.js"></script>
+		<script>
+			$(document).ready(function(){
+				//Examples of how to assign the Colorbox event to elements
+				
+				$(".iframe").colorbox({iframe:true, width:"80%", height:"80%"});
+				
+
+				
+			});
+		</script>
+	</head>
+	<body class="loading">
+		<div id="wrapper">
+			<div id="bg"></div>
+			<div id="overlay"></div>
+			<div id="main">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Ampelbewertung</h1>
+						<p>Wirtschaftsinformatik</p>
+						<nav>
+							<ul>
+								<li><a href="./neuerKurs.php" class="icon fa-plus iframe"></a>Neuen Kurs</li>
+								<li><a href="/neuerKurs.php" class="icon fa-edit iframe"></a>Kurse</li>	<!--/promod.php-->
+								<li style='float:left'><a href="javascript:history.back()" class="icon fa-chevron-left"><span class="label">Zurück</span></a></li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<!--<span class="copyright">&copy; Steffen Wachtel.</span>-->
+						<span class="copyright">Hochschule Furtwangen - Fakultät Wirtschaftsinformatik </span>
+					</footer>
+<div id="black_overlay" style="width: 100%;"> </div>
+<div class="added"></div>
+
+
+			</div>
+		</div>
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script>
+			window.onload = function() { document.body.className = ''; }
+			window.ontouchmove = function() { return false; }
+			window.onorientationchange = function() { document.body.scrollTop = 0; }
+		</script>
+	</body>
+</html>

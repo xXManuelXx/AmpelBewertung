@@ -1,0 +1,73 @@
+table {
+    width:100%;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+*{
+font-family:Arial;
+}
+.small{
+	width:50px;
+}
+.red{
+	background-color:red;
+}
+.green{
+	background-color:green;
+}
+.yellow{
+	background-color:#FF9900;
+}
+.white{
+	background-color:transparent;
+	display: table-cell;
+}
+.grpOne {
+	background-color:#EBF5D6;
+}
+.grpTwo {
+	background-color:#CCE699;
+}
+.grpThree {
+	background-color:#AED75B;
+}
+.grpFour {
+	background-color:white;
+}
+.btmborder{
+	border-bottom:2px solid black;
+}
+tr:nth-child(even) {background: #d3d3d3 }
+tr:nth-child(odd) {background: #FFF}
+ 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+textarea{ height:100%; width:99%;  resize: none; }
